@@ -11,16 +11,25 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.6.292" />
     <PackageReference Include="Xamarin.Forms" Version="4.0.0.425677" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.1.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Views\ListViewPage1.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\MultiSelect.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\TabbedPage1.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="image\" />
   </ItemGroup>
 </Project>

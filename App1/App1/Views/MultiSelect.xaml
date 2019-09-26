@@ -5,6 +5,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="App1.Views.MultiSelect">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem />
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ListView ItemsSource="{Binding DataList}" Margin="20">
             <ListView.ItemTemplate>
@@ -16,8 +19,7 @@
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
                             <StackLayout VerticalOptions="CenterAndExpand">
-                                <Label Text="{Binding Data.Name}"  />
-                                <Label Text="{Binding Data.Description}" FontSize="10" />
+                                <Label Text="{Binding Data.Name}" TextColor="Black" />
                             </StackLayout>
                             <Switch IsToggled="{Binding Selected}" Grid.Column="1" />
                         </Grid>
@@ -25,7 +27,8 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
             <ListView.Footer>
-                <Button Text="Finished" Command="{Binding FinishCommand}" />
+                <!--<Button Text="Finished" Command="{Binding FinishCommand}" />-->
+                <Button  Text="Add" Clicked="AddItem_Clicked" />
             </ListView.Footer>
         </ListView>
     </ContentPage.Content>

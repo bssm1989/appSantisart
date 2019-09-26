@@ -22,7 +22,7 @@ namespace App1.Views
             {
                 new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
                 new HomeMenuItem {Id = MenuItemType.About, Title="About" },
-                new HomeMenuItem {Id = MenuItemType.tab, Title="Tab" }
+                new HomeMenuItem {Id = MenuItemType.Attendance, Title="เช็คชื่อ" }
             };
 
             ListViewMenu.ItemsSource = menuItems;

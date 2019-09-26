@@ -5,20 +5,81 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="App1.Views.TabbedPage1">
-  <!--Pages can be added as references or inline-->
-    <ListView ItemsSource="{Binding DataSource}" Margin="20">
-        <ListView.Header>
-            <Button Command="{Binding SelectCommand}" Text="Edit" />
-        </ListView.Header>
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <ViewCell>
-                    <StackLayout VerticalOptions="CenterAndExpand" Margin="0,0,0,20">
-                        <Label Text="{Binding Data.Name}"  />
-                        <Label Text="{Binding Data.Description}" FontSize="10" />
+     <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <Grid BackgroundColor="Transparent" VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="250" />
+                <RowDefinition Height="250" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="5*"/>
+            </Grid.ColumnDefinitions>
+
+            <BoxView BackgroundColor="pink" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            </BoxView>
+            <BoxView BackgroundColor="red" Grid.Column="0" Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                <BoxView BackgroundColor="Yellow" Grid.Column="1" Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+            <StackLayout Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="1">
+                <StackLayout>
+                    <StackLayout>
+                        <StackLayout HorizontalOptions="Center" VerticalOptions="Start">
+                            <Image x:Name="imgBanner" Source="banner.png" ></Image>
+                            <Image Margin="0,0,0,10" HeightRequest="100" Source="SQLite.png" ></Image>
+                            <Label Margin="0,0,0,10" Text="SQLite" FontAttributes="Bold" FontSize="Large" TextColor="Gray" HorizontalTextAlignment="Center" ></Label>
+                            <Entry x:Name="txtPersonId" Placeholder="PersonId Update and Delete"></Entry>
+                            <Entry x:Name="txtName" Placeholder="Enter Person Name"></Entry>
+                            <StackLayout  HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                                <!--<Button x:Name="btnAdd" WidthRequest="200" Text="Add" Clicked="BtnAdd_Clicked" />
+                                <Button x:Name="btnRead" WidthRequest="200" Text="Read" Clicked="BtnRead_Clicked" />-->
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                                <!--<Button x:Name="btnUpdate" WidthRequest="200" Text="Update" Clicked="BtnUpdate_Clicked"/>
+                                <Button x:Name="btnDelete" WidthRequest="200" Text="Delete" Clicked="BtnDelete_Clicked" />-->
+                            </StackLayout>
+                            <ListView x:Name="lstPersons">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextCell Text="{Binding Name}" Detail="{Binding PersonID}"></TextCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+
+                        </StackLayout>
                     </StackLayout>
-                </ViewCell>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+                </StackLayout>
+            </StackLayout><StackLayout Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="0">    
+            <ListView ItemsSource="{Binding DataSource}" Margin="20">
+               
+                    <ListView.Header >
+                    <Button Command="{Binding SelectCommand}" Text="Edit" />
+                </ListView.Header>
+                <ListView.ItemTemplate >
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout VerticalOptions="CenterAndExpand" Margin="0,0,0,20">
+                                <Label Text="{Binding Data.Name}"  />
+                                <Label Text="{Binding Data.Description}" FontSize="10" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            </StackLayout>
+            <Button Text="มาเรียน" Clicked="AddItem_Clicked" Grid.Row="1" Grid.Column="0"/>
+            <Button Text="toPage 2" Clicked="NavigateButton_OnClicked" Grid.Row="1" Grid.Column="1"/>
+            
+
+        </Grid>
+        
+    </ContentPage.Content>
+    <!--Pages can be added as references or inline-->
+    
+    <ContentPage.Triggers>
+        
+    </ContentPage.Triggers>
 </ContentPage>

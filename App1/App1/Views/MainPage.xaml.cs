@@ -36,7 +36,7 @@ namespace App1.Views
                     case (int)MenuItemType.About:
                         MenuPages.Add(id, new NavigationPage(new AboutPage()));
                         break;
-                    case (int)MenuItemType.tab:
+                    case (int)MenuItemType.Attendance:
                         MenuPages.Add(id, new NavigationPage(new TabbedPage1()));
                         break;
                 }
