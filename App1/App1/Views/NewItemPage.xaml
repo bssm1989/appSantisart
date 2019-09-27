@@ -13,12 +13,8 @@
     </ContentPage.ToolbarItems>
     
     <ContentPage.Content>
-        <StackLayout Spacing="20" Padding="15">
-            <Label Text="Text" FontSize="Medium" />
-            <Entry Text="{Binding Item.Text}" d:Text="Item name" FontSize="Small" />
-            <Label Text="Description" FontSize="Medium" />
-            <Editor Text="{Binding Item.Description}" d:Text="Item description" FontSize="Small" Margin="0" />
-        </StackLayout>
+        <Button Text="toPage 2" Clicked="NavigateButton_OnClicked" Grid.Row="1" Grid.Column="1"/>
+
     </ContentPage.Content>
     
 </ContentPage>
