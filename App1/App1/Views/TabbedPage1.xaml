@@ -28,11 +28,7 @@
                 <StackLayout>
                     <StackLayout>
                         <StackLayout HorizontalOptions="Center" VerticalOptions="Start">
-                            <Image x:Name="imgBanner" Source="banner.png" ></Image>
-                            <Image Margin="0,0,0,10" HeightRequest="100" Source="SQLite.png" ></Image>
-                            <Label Margin="0,0,0,10" Text="SQLite" FontAttributes="Bold" FontSize="Large" TextColor="Gray" HorizontalTextAlignment="Center" ></Label>
-                            <Entry x:Name="txtPersonId" Placeholder="PersonId Update and Delete"></Entry>
-                            <Entry x:Name="txtName" Placeholder="Enter Person Name"></Entry>
+                            
                             <StackLayout  HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
                                 <!--<Button x:Name="btnAdd" WidthRequest="200" Text="Add" Clicked="BtnAdd_Clicked" />
                                 <Button x:Name="btnRead" WidthRequest="200" Text="Read" Clicked="BtnRead_Clicked" />-->
@@ -69,9 +65,9 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            </StackLayout>
-            <Button Text="มาเรียน" Clicked="AddItem_Clicked" Grid.Row="1" Grid.Column="0"/>
             <Button Text="toPage 2" Clicked="NavigateButton_OnClicked" Grid.Row="1" Grid.Column="1"/>
+            <Button Text="มาเรียน" Clicked="AddItem_Clicked" Grid.Row="1" Grid.Column="0"/>
+            </StackLayout>
             
 
         </Grid>

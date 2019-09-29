@@ -13,8 +13,10 @@
     </ContentPage.ToolbarItems>
     
     <ContentPage.Content>
-        <Button Text="toPage 2" Clicked="NavigateButton_OnClicked" Grid.Row="1" Grid.Column="1"/>
-
+        <StackLayout>
+            <Button Text="toPage 2" Clicked="AddItem_Clicked" Grid.Row="1" Grid.Column="1"/>
+        </StackLayout>
+        
     </ContentPage.Content>
     
 </ContentPage>

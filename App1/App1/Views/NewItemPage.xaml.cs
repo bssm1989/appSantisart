@@ -71,6 +71,10 @@ namespace App1.Views
 
             conn.Close();
         }
+        async void AddItem_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new MultiSelect(SelectedData));
+        }
         async void Save_Clicked(object sender, EventArgs e)
         {
             MessagingCenter.Send(this, "AddItem", Item);
@@ -80,6 +84,10 @@ namespace App1.Views
         async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
+        }
+        private async void NavigateButton_OnClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ListViewPage2());
         }
     }
 }

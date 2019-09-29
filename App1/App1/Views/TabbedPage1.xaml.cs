@@ -62,18 +62,19 @@ namespace App1.Views
                 SelectedData = new List<SelectableData<ExampleData>>();
                 foreach (var item in posts)
                 {
-                    SelectedData.Add(new SelectableData<ExampleData>() {
-                    Data=new ExampleData() { Name=item.EmpName,Description=item.EmpName}
+                    SelectedData.Add(new SelectableData<ExampleData>()
+                    {
+                        Data = new ExampleData() { Name = item.EmpName, Description = item.EmpName }
                     });
-                   }
                 }
-                
+            }
 
 
-                
-            
-               
-            
+
+
+
+
+
             conn.Close();
         }
         private async void NavigateButton_OnClicked(object sender, EventArgs e)
