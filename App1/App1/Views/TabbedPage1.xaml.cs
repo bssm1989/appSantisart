@@ -83,22 +83,22 @@ namespace App1.Views
         }
 
 
-        //protected async override void OnAppearing()
-        //{
-        //    base.OnAppearing();
-        //    DataSource = SelectedData.Where(x => x.Selected).ToList();
-        //    OnPropertyChanged(nameof(DataSource));
-        //    ((MainPageViewModel)BindingContext).OnAppearing();
+        protected async override void OnAppearing()
+        {
+            base.OnAppearing();
+            DataSource = SelectedData.Where(x => x.Selected).ToList();
+            OnPropertyChanged(nameof(DataSource));
+            ((MainPageViewModel)BindingContext).OnAppearing();
+
+       
+            //var personList = await App.SQLiteDb.GetItemsAsync();
+            //if (personList != null)
+            //{
+            //    lstPersons.ItemsSource = personList;
+            //}
 
 
-        //    var personList = await App.SQLiteDb.GetItemsAsync();
-        //    if (personList != null)
-        //    {
-        //        lstPersons.ItemsSource = personList;
-        //    }
-
-
-        //}
+        }
         async void AddItem_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new MultiSelect(SelectedData));

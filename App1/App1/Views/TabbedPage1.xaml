@@ -28,8 +28,7 @@
                 <StackLayout>
                     <StackLayout>
                         <StackLayout HorizontalOptions="Center" VerticalOptions="Start">
-                            
-                            <StackLayout  HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                           <StackLayout  HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
                                 <!--<Button x:Name="btnAdd" WidthRequest="200" Text="Add" Clicked="BtnAdd_Clicked" />
                                 <Button x:Name="btnRead" WidthRequest="200" Text="Read" Clicked="BtnRead_Clicked" />-->
                             </StackLayout>
@@ -65,6 +64,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+                
             <Button Text="toPage 2" Clicked="NavigateButton_OnClicked" Grid.Row="1" Grid.Column="1"/>
             <Button Text="มาเรียน" Clicked="AddItem_Clicked" Grid.Row="1" Grid.Column="0"/>
             </StackLayout>

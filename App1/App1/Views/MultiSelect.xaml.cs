@@ -36,9 +36,15 @@ namespace App1.Views
         }
         async void AddItem_Clicked(object sender, EventArgs e)
         {
+            var navPage = new NavigationPage(new TabbedPage1());
+            Application.Current.MainPage = navPage;
+
+            //await navPage.PushAsync(new MultiSelect(SelectedData));
+            MainPageViewModel.SelectedData = GetNewData();
+            
             MainPageViewModel.SelectedData = GetNewData();
             //MultiSelect
-            await Navigation.PopModalAsync();
+            await navPage.PopAsync();
         }
 
     }
