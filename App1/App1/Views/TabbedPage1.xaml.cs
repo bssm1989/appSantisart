@@ -26,6 +26,7 @@ namespace App1.Views
         {
             InitializeComponent();
             BindingContext = new MainPageViewModel();
+
             SelectedData = new List<SelectableData<ExampleData>>()
             {
                 new SelectableData<ExampleData>() {

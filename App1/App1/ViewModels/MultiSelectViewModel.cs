@@ -7,6 +7,7 @@ namespace App1.Views
     internal class MultiSelectViewModel
     {
         private List<SelectableData<ExampleData>> SelectedData;
+        public List<SelectableData<ExampleData>> SelectedData2;
 
         //private List<SelectableData<ExampleData>> data;
 

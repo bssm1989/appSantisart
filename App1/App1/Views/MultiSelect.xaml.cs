@@ -1,4 +1,4 @@
-﻿using System;
+﻿                                using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +18,7 @@ namespace App1.Views
         {
             InitializeComponent();
             BindingContext = new MultiSelectViewModel(data);
-            DataList = data;
+            //DataList = data;
         }
         public List<SelectableData<ExampleData>> DataList { get; set; }
         public List<SelectableData<ExampleData>> GetNewData()
@@ -40,8 +40,6 @@ namespace App1.Views
             Application.Current.MainPage = navPage;
 
             //await navPage.PushAsync(new MultiSelect(SelectedData));
-            MainPageViewModel.SelectedData = GetNewData();
-            
             MainPageViewModel.SelectedData = GetNewData();
             //MultiSelect
             await navPage.PopAsync();

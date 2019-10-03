@@ -4,13 +4,13 @@ using Xamarin.Forms;
 
 namespace App1.Views
 {
-    internal class MultiSelectViewModel
+    internal class MultiSelectAttendance
     {
         private List<SelectableData<ExampleData>> SelectedData;
 
         //private List<SelectableData<ExampleData>> data;
 
-        public MultiSelectViewModel(List<SelectableData<ExampleData>> data)
+        public MultiSelectAttendance(List<SelectableData<ExampleData>> data)
         {
             DataList = data;
         }
@@ -27,17 +27,17 @@ namespace App1.Views
             return list;
         }
 
-        public ICommand FinishCommand
+        public ICommand FinishCommandAttendance
         {
             get
             {
                 return new Command(async () =>
                 {
-                    var navPage = new NavigationPage(new TabbedPage1());
+                    var navPage = new NavigationPage(new NewItemPage());
                     Application.Current.MainPage = navPage;
 
                     //await navPage.PushAsync(new MultiSelect(SelectedData));
-                    MainPageViewModel.SelectedData = GetNewData();
+                    MainPageViewModelAttendance.SelectedData = GetNewData();
                     await navPage.PopAsync();
                 });
             }

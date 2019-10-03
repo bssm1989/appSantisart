@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
@@ -14,31 +15,37 @@ namespace App1.Views
     {
         public ObservableCollection<string> Items { get; set; }
 
-        public ListViewPage2()
+        public ListViewPage2(List<SelectableData<ExampleData>> data)
         {
             InitializeComponent();
 
-            Items = new ObservableCollection<string>
-            {
-                "Item 1",
-                "Item 2",
-                "Item 3",
-                "Item 4",
-                "Item 5"
-            };
-
-            MyListView.ItemsSource = Items;
+            BindingContext = new MultiSelectAttendance(data);
+            DataList = data;
         }
-
-        async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
+        public List<SelectableData<ExampleData>> DataList { get; set; }
+        public List<SelectableData<ExampleData>> GetNewData()
         {
-            if (e.Item == null)
-                return;
+            var list = new List<SelectableData<ExampleData>>();
 
-            await DisplayAlert("Item Tapped", "An item was tapped.", "OK");
+            foreach (var data in DataList)
+                list.Add(new SelectableData<ExampleData>()
+                {
+                    Data = data.Data.Clone(),
+                    Selected = data.Selected
+                });
 
-            //Deselect Item
-            ((ListView)sender).SelectedItem = null;
+            return list;
         }
+
+        async void AddItem_Clicked(object sender, EventArgs e)
+        {
+            var navPage = new NavigationPage(new NewItemPage());
+            Application.Current.MainPage = navPage;
+
+            //await navPage.PushAsync(new MultiSelect(SelectedData));
+            MainPageViewModelAttendance.SelectedData = GetNewData();
+            await navPage.PopAsync();
+        }
+
     }
 }

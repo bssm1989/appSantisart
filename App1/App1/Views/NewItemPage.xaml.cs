@@ -9,6 +9,7 @@ using SQLite;
 using System.Net.Http;
 using Newtonsoft.Json;
 using System.Net;
+using System.Linq;
 
 namespace App1.Views
 {
@@ -22,14 +23,10 @@ namespace App1.Views
         public NewItemPage()
         {
             InitializeComponent();
+            BindingContext = new MainPageViewModelAttendance();
+            SelectedData = new List<SelectableData<ExampleData>>();
+            
 
-            Item = new Item
-            {
-                Text = "Item name",
-                Description = "This is an item description."
-            };
-
-            BindingContext = this;
             getPerson();
 
         }
@@ -71,9 +68,26 @@ namespace App1.Views
 
             conn.Close();
         }
-        async void AddItem_Clicked(object sender, EventArgs e)
+        public List<SelectableData<ExampleData>> DataSource { get; set; }
+        protected async override void OnAppearing()
         {
-            await Navigation.PushModalAsync(new MultiSelect(SelectedData));
+            base.OnAppearing();
+            DataSource = SelectedData.Where(x => x.Selected).ToList();
+            OnPropertyChanged(nameof(DataSource));
+            ((MainPageViewModelAttendance)BindingContext).OnAppearing();
+
+
+            //var personList = await App.SQLiteDb.GetItemsAsync();
+            //if (personList != null)
+            //{
+            //    lstPersons.ItemsSource = personList;
+            //}
+
+
+        }
+        async void AddItemAttendance_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new ListViewPage2(SelectedData));
         }
         async void Save_Clicked(object sender, EventArgs e)
         {
@@ -87,7 +101,7 @@ namespace App1.Views
         }
         private async void NavigateButton_OnClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new ListViewPage2());
+            await Navigation.PushAsync(new ListViewPage2(SelectedData));
         }
     }
 }

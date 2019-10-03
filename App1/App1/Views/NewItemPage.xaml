@@ -7,16 +7,26 @@
              x:Class="App1.Views.NewItemPage"
              Title="New Item">
     
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" />
-        <ToolbarItem Text="Save" Clicked="Save_Clicked" />
-    </ContentPage.ToolbarItems>
+   
     
     <ContentPage.Content>
-        <StackLayout>
-            <Button Text="toPage 2" Clicked="AddItem_Clicked" Grid.Row="1" Grid.Column="1"/>
-        </StackLayout>
-        
+        <ListView ItemsSource="{Binding DataSource}" Margin="20">
+
+            <ListView.Header >
+                <Button  Clicked="AddItemAttendance_Clicked" Text="Edit" />
+            </ListView.Header>
+            <ListView.ItemTemplate >
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout VerticalOptions="CenterAndExpand" Margin="0,0,0,20">
+                            <Label Text="{Binding Data.Name}"  />
+                            <Label Text="{Binding Data.Description}" FontSize="10" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
     </ContentPage.Content>
     
 </ContentPage>
